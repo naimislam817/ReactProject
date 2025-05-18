@@ -1,0 +1,38 @@
+/* src/index.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6; /* Slightly softer background */
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Inherit color from parent, can be overridden */
+}
+
+/* General container for the app content if needed */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 1.5rem;
+  overflow-y: auto; /* Allow content to scroll if it overflows */
+}
+
+/* Basic card styling - can be used by DashboardCard and Chart */
+.card-base {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem; /* Add some space between cards */
+}

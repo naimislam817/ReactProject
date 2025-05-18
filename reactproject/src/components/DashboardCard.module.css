@@ -1,0 +1,39 @@
+/* src/components/DashboardCard.module.css */
+/* .dashboardCard uses .card-base from index.css, these are additional/overriding styles */
+.dashboardCard {
+  /* Specific styles if needed, otherwise rely on card-base */
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align title to start, icon to start (top) */
+  margin-bottom: 0.75rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.cardIcon {
+  color: #007bff; /* Example icon color */
+}
+
+.cardValue {
+  margin: 0 0 0.5rem 0; /* Add some space below value if there's a note */
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.2;
+}
+
+.cardNote {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #777;
+}

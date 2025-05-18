@@ -1,0 +1,18 @@
+/* src/pages/DashboardPage.module.css */
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 1.5rem;
+}
+
+.chartContainer {
+  grid-column: 1 / -1; /* Make chart span full width available in grid */
+  /* Styles from card-base are applied via className */
+}
+
+.loading, .error {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem;
+  color: #555;
+}
