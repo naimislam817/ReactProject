@@ -1,9 +1,8 @@
-// src/components/Sidebar.jsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import styles from './Sidebar.module.css';
-// Example: npm install react-icons
+
+// Uncomment and install react-icons if you want to add icons:
 // import { FiGrid, FiBarChart2, FiSettings } from 'react-icons/fi';
 
 const menuItems = [
@@ -16,21 +15,20 @@ function Sidebar() {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.sidebarHeader}>
-        {/* You could put a logo here */}
         <h3>Project X</h3>
       </div>
       <nav className={styles.sidebarNav}>
         <ul>
-          {menuItems.map((item) => (
-            <li key={item.name}>
+          {menuItems.map(({ path, name }) => (
+            <li key={name}>
               <NavLink
-                to={item.path}
+                to={path}
                 className={({ isActive }) =>
                   isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
               >
-                {/*item.icon && <span className={styles.icon}>{item.icon}</span>*/}
-                {item.name}
+                {/* {icon && <span className={styles.icon}>{icon}</span>} */}
+                {name}
               </NavLink>
             </li>
           ))}
@@ -39,8 +37,5 @@ function Sidebar() {
     </aside>
   );
 }
-
-// No props for now, but good practice
-Sidebar.propTypes = {};
 
 export default Sidebar;

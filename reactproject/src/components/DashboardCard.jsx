@@ -1,62 +1,33 @@
-import React, { useState } from 'react';
-import GraphComponent from '../components/GraphComponent';
+// src/components/DashboardCard.jsx
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './DashboardCard.module.css';
+// import { FiUsers, FiDollarSign, FiShoppingCart } from 'react-icons/fi'; // Example icons
 
-function DashboardPage() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+// const iconMap = {
+//   users: <FiUsers size={28} />,
+//   'dollar-sign': <FiDollarSign size={28} />,
+//   'shopping-cart': <FiShoppingCart size={28} />,
+// };
 
-  // For graph display toggle
-  const [showGraph, setShowGraph] = useState(false);
-
-  const fetchPosts = () => {
-    setLoading(true);
-    setError(null);
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setPosts(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setLoading(false);
-      });
-  };
-
+function DashboardCard({ title, value, icon, note }) {
   return (
-    <div>
-      <h1>Dashboard</h1>
-
-      <button onClick={fetchPosts} disabled={loading}>
-        {loading ? 'Loading...' : 'Load Posts'}
-      </button>
-
-      {error && <div style={{ color: 'red' }}>Error: {error}</div>}
-
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <strong>{post.title}</strong>
-            <p>{post.body}</p>
-          </li>
-        ))}
-      </ul>
-
-      <hr />
-
-      <button onClick={() => setShowGraph((prev) => !prev)}>
-        {showGraph ? 'Hide Graph' : 'Display Graph'}
-      </button>
-
-      {showGraph && <GraphComponent />}
+    <div className={`${styles.dashboardCard} card-base`}> {/* Use card-base from index.css */}
+      <div className={styles.cardHeader}>
+        <h3 className={styles.cardTitle}>{title}</h3>
+        {/*icon && <div className={styles.cardIcon}>{iconMap[icon]}</div>*/}
+      </div>
+      <p className={styles.cardValue}>{value}</p>
+      {note && <p className={styles.cardNote}>{note}</p>}
     </div>
   );
 }
 
-export default DashboardPage;
+DashboardCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  icon: PropTypes.string, // To map to an icon component
+  note: PropTypes.string,
+};
+
+export default DashboardCard;

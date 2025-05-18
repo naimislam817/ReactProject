@@ -97,6 +97,7 @@ ChartComponent.propTypes = {
     ).isRequired,
   }),
   title: PropTypes.string,
+  
 };
 
 export default ChartComponent;

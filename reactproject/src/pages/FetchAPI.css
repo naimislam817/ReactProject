@@ -1,0 +1,16 @@
+/* src/pages/FetchAPI.css */
+.fetch-container {
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+}
+.fetch-container ul {
+  list-style: none;
+  padding: 0;
+}
+.fetch-container li {
+  margin: 8px 0;
+  padding: 8px;
+  background: #f4f4f4;
+  border-radius: 4px;
+}
